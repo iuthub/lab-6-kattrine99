@@ -22,8 +22,23 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 }
 
 ?>
-
-
+<?php
+$str1 = 'The quick " " 	 brown fox';
+print preg_replace('/\s+/', '', $str1)."\n";
+?>
+<?php
+$num = '$123,34.00A';
+print preg_replace('\d+.+[^A-Z]','', $num);
+?>
+<?php
+$str = "Twinkle, twinkle, little star,\nHow I wonder what you are.\nUp above the world so high,\nLike a diamond in the sky.";
+print preg_replace('/\s+/', ' ', trim($str))."\n";
+?>
+<?php
+$my_text = 'The quick brown [fox].';
+preg_match('#\[(.*?)\]#', $my_text, $match);
+print $match[1]."\n";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
